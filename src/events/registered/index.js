@@ -12,15 +12,17 @@ async function registered(event) {
   mail.setApiKey(process.env.SENDGRID_API_KEY)
 
   try {
-    // let fiveMinutes = 300000
-    // let ttl = (Date.now() + fiveMinutes) / 1000
-    // let token = await data.set({table: `tokens`, email, ttl})
+    let fiveMinutes = 300000
+    let ttl = ( Date.now() + fiveMinutes ) / 1000
+    console.log(ttl)
+    //let token = await data.set({table: 'tokens', email, ttl})
+    //console.log(token.key)
     let result = await mail.send({
       to: email, // Change to your recipient
       from: 'paul@begin.com', // Change to your verified sender
       subject: 'Welcome to the service',
-      // text: `verify email ${process.env.BASE_URL}/verify/${token.key}`,
-      text: `verify email ${process.env.BASE_URL}/verify/`
+      text: `verify email ${process.env.BASE_URL}/verify/${ttl}`,
+      // text: `verify email ${process.env.BASE_URL}/verify/`
     });
     console.log(result, 'made it here')
   } catch (error) {
