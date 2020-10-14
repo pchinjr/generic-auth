@@ -10,27 +10,29 @@ async function valid(req) {
     key: req.body.email
   })
   if (result) {
-    return { 
+    return {
       location: '/?error=exists'
     }
   }
 }
 
 async function reg(req) {
-  
+
   let salt = bcrypt.genSaltSync(10)
   let hash = bcrypt.hashSync(req.body.password, salt)
-  
+
   let result = await data.set({
-    table: 'accounts', 
+    table: 'accounts',
     key: req.body.email,
     password: hash
   })
 
-  return { 
+  await arc.events.publish({name: 'registered', payload: result})
+
+  return {
     session: {
-      account: { 
-        email: req.body.email 
+      account: {
+        email: req.body.email
       }
     },
     location: '/admin'

@@ -17,6 +17,9 @@ post /logout
 post /forgot
 post /reset
 
+@events
+registered
+
 @tables
 # accounts key of email
 data
