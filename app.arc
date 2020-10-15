@@ -21,7 +21,6 @@ post /reset
 registered
 
 @tables
-# accounts key of email
 data
   scopeID *String
   dataID **String
