@@ -12,10 +12,10 @@ Sign up now!
 `
 
 async function reg(req) {
-  return { 
+  return {
     html: layout({
       account: req.session.account,
       body: form
-    }) 
+    })
   }
 }

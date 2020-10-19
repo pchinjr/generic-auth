@@ -15,8 +15,8 @@ async function registered(event) {
     let fiveMinutes = 300000
     let ttl = ( Date.now() + fiveMinutes ) / 1000
     console.log(ttl, 'ttl')
-    let token = await data.set({table: 'tokens', email, ttl})
-    console.log(token.key, 'token key')
+    //let token = await data.set({table: 'tokens', email, ttl})
+    //console.log(token.key, 'token key')
     let result = await mail.send({
       to: email, // Change to your recipient
       from: 'paul@begin.com', // Change to your verified sender

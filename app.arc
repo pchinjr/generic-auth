@@ -12,6 +12,7 @@ get /forgot
 get /reset/:token
 
 post /register
+post /register/nuke
 post /login
 post /logout
 post /forgot
