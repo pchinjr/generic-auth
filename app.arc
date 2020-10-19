@@ -10,6 +10,7 @@ get /logout
 get /register
 get /forgot
 get /reset/:token
+get /verify/:token
 
 post /register
 post /register/nuke
